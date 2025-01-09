@@ -1,0 +1,51 @@
+@import url("https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "Enigmatic";
+  src: url("./assets/enigmatic.regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "Enigmatic Bold";
+  src: url("./assets/enigmatic.bold.ttf");
+}
+
+@font-face {
+  font-family: "Enigmatic Italic";
+  src: url("./assets/enigmatic.italic.ttf");
+}
+
+@layer base {
+  p {
+    @apply text-white;
+  }
+  h1 {
+    @apply font-heading;
+    @apply text-4xl;
+    @apply uppercase;
+  }
+  :root {
+    --radius: 0.3rem;
+  }
+
+  button {
+    @apply bg-sky-500 text-white;
+    @apply px-4 py-2 rounded-md;
+  }
+
+  .glass-surface {
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: linear-gradient(
+      135deg,
+      rgba(0, 0, 0, 0.66) 0%,
+      rgba(0, 0, 0, 0.33) 100%
+    );
+    background-blend-mode: darken;
+    backdrop-filter: blur(10px);
+    border-radius: var(--radius);
+  }
+}

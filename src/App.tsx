@@ -1,6 +1,7 @@
 import LaunchScreen from "./LaunchScreen";
 
 import "./reset.css";
+import "./index.css";
 
 function App() {
   return <LaunchScreen />;

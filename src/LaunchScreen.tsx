@@ -5,7 +5,10 @@ import { Board } from "./Board";
 import { Debug } from "boardgame.io/debug";
 import { P2P } from "./p2p";
 
+import titleSvg from "./assets/title.svg";
 import bgHex from "./assets/bg-hex.svg";
+import { BackgroundVideo } from "./BackgroundVideo";
+import { Button } from "./components/ui/button";
 
 const LaunchScreen: React.FC = () => {
   const [matchID, setMatchID] = useState("matchID");
@@ -29,30 +32,36 @@ const LaunchScreen: React.FC = () => {
       debug: { impl: Debug },
       multiplayer: P2P(),
     }) as any;
-    setGameClient(<ClientComponent matchID={matchID} playerID={"1"} />);
+    setGameClient(<ClientComponent matchID={matchID} playerID={"13"} />);
   };
 
   return (
-    <div
-      style={{
-        height: "100vh",
-        width: "100vw",
-        background: `url(${bgHex}), black`,
-        backgroundSize: "100px",
-        padding: "2rem",
-      }}
-    >
-      <h1>Launch Screen</h1>
-      <p>Welcome to the launch screen!</p>
-      <button onClick={hostGame}>Host Game</button>
-      <button onClick={setupClient}>Join Game</button>
-      <input
-        type="text"
-        placeholder="Enter Host IP"
-        value={matchID}
-        onChange={(e) => setMatchID(e.target.value)}
-      />
-      {gameClient && gameClient}
+    <div>
+      <BackgroundVideo />
+      <main className="absolute z-1 w-full h-screen flex items-center justify-center flex-col">
+        <img src={titleSvg} className="max-w-3xl" alt="Stellar Convergence" />
+        <h2 className="uppercase tracking-wider drop-shadow">
+          A game of commerce and compromise in the empyrean sector
+        </h2>
+        <div className="flex mt-16 space-x-8">
+          <Button size="lg" onClick={hostGame}>
+            Host Game
+          </Button>
+          <Button size="lg" onClick={setupClient}>
+            Join Game
+          </Button>
+
+          {/* <div>
+            <input
+              type="text"
+              placeholder="Enter Host IP"
+              value={matchID}
+              onChange={(e) => setMatchID(e.target.value)}
+            />
+          </div> */}
+        </div>
+        {gameClient && gameClient}
+      </main>
     </div>
   );
 };
