@@ -44,7 +44,7 @@ const LaunchScreen: React.FC<LaunchScreenProps> = ({
   };
 
   return (
-    <div className="z-2">
+    <div>
       <BackgroundVideo />
       <main className="absolute z-1 w-full h-screen flex items-center justify-center flex-col">
         <img src={titleSvg} className="max-w-3xl" alt="Stellar Convergence" />
