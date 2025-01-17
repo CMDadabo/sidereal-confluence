@@ -29,7 +29,7 @@
     @apply uppercase;
   }
   :root {
-    --radius: 0.3rem;
+    --radius: 1rem;
   }
 
   .glass-surface {
